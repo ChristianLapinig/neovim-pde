@@ -8,7 +8,7 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      { "<leader>fv", "<cmd>Telescope live_grep<cr>", desc = "Grep Files" },
+      { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Grep Files" },
       { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Git Files" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },

@@ -409,4 +409,41 @@ _s_: Stop
       end
     end,
   },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+      event = {
+        "InsertEnter",
+        "BufReadPre",
+      },
+    },
+    config = function()
+      require("nvim-autopairs").setup {
+        check_ts = true,
+        ts_config = {
+          lua = { "string", "source" }, -- it will not add pair on that treesitter node
+          javascript = { "string", "template_string" },
+          java = false, -- don't check treesitter on java
+        },
+        fast_wrap = {
+          map = "<M-e>",
+          chars = { "{", "[", "(", '"', "'" },
+          pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+          end_key = "$",
+          offset = 0, -- Offset from pattern match
+          keys = "qwertyuiopzxcvbnmasdfghjkl",
+          check_comma = true,
+          hightlight = "PmenuSel",
+          highlight_grey = "LineNr",
+        },
+      }
+
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      local cmp = require "cmp"
+
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {})
+    end,
+  },
 }
