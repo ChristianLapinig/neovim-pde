@@ -49,6 +49,7 @@ opt.title = true
 opt.undofile = true
 opt.updatetime = 200
 opt.wildmode = "longest:full,full"
+opt.colorcolumn = "85"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
