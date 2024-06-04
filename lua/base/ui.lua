@@ -8,24 +8,60 @@ return {
       }
     end,
   },
+  -- THEMES ----------------------------------------------------------------------
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     style = "night",
+  --     transparent = false,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     local tokyonight = require "tokyonight"
+  --     tokyonight.setup(opts)
+  --     tokyonight.load()
+  --   end,
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      style = "night",
-      transparent = false,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
+      terminal_colors = true, -- add neovim terminal colors
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true, -- invert background for search, diffs, statuslines and errors
+      contrast = "", -- can be "hard", "soft" or empty string
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     },
     config = function(_, opts)
-      local tokyonight = require "tokyonight"
-      tokyonight.setup(opts)
-      tokyonight.load()
+      local gruvbox = require "gruvbox"
+      gruvbox.setup(opts)
+      gruvbox.load()
     end,
   },
+  -- END THEMES -------------------------------------------------------------------
   { "catppuccin/nvim", lazy = false, name = "catppuccin" },
   {
     "stevearc/dressing.nvim",
